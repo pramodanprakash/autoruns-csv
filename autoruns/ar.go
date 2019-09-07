@@ -2,8 +2,6 @@ package autoruns
 
 import (
 	"bufio"
-	"encoding/json"
-	"fmt"
 	"log"
 	"os"
 	"strings"
@@ -49,12 +47,7 @@ func NewAutoRuns(path string) []AutoRuns {
 		if err := scanner.Populate(&a); err != nil {
 			log.Panic(err)
 		}
-		fmt.Printf("%#v\n", a)
-		jSlice, err := json.Marshal(a)
-		if err != nil {
-			log.Panicln(err)
-		}
-		fmt.Println(string(jSlice))
+
 		data = append(data, a)
 	}
 	return data
